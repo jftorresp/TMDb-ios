@@ -25,6 +25,7 @@
 		B12A9B5A263537B600144816 /* MovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A9B59263537B600144816 /* MovieDetailPresenter.swift */; };
 		B12A9B5F2635380600144816 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A9B5E2635380600144816 /* MovieDetailViewController.swift */; };
 		B12A9B64263542F800144816 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A9B63263542F800144816 /* Genre.swift */; };
+		B12A9B8A2635C2C100144816 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A9B892635C2C100144816 /* SpinnerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		B12A9B59263537B600144816 /* MovieDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenter.swift; sourceTree = "<group>"; };
 		B12A9B5E2635380600144816 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		B12A9B63263542F800144816 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		B12A9B892635C2C100144816 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				B12A9B352635052100144816 /* MovieCollectionViewCell.swift */,
 				B12A9B362635052100144816 /* MovieCollectionViewCell.xib */,
 				B12A9B5E2635380600144816 /* MovieDetailViewController.swift */,
+				B12A9B892635C2C100144816 /* SpinnerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				B12A9B5F2635380600144816 /* MovieDetailViewController.swift in Sources */,
 				B12A9B5A263537B600144816 /* MovieDetailPresenter.swift in Sources */,
 				B12A9AE72634FC1300144816 /* SceneDelegate.swift in Sources */,
+				B12A9B8A2635C2C100144816 /* SpinnerView.swift in Sources */,
 				B12A9B272634FD6500144816 /* MovieListPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
