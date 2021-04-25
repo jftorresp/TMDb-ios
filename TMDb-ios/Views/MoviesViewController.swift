@@ -11,8 +11,10 @@ import Kingfisher
 class MoviesViewController: UIViewController, MoviePresenterDelegate, UIScrollViewDelegate {
     
     @IBOutlet weak var moviesCollectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     private var movies = [Movie]()
+    var filteredMovies: [Movie]!
     private let presenter = MoviePresenter()
     var page: Int = 1
     var isPageRefreshing:Bool = false
@@ -25,6 +27,7 @@ class MoviesViewController: UIViewController, MoviePresenterDelegate, UIScrollVi
         
         moviesCollectionView.delegate = self
         moviesCollectionView.dataSource = self
+        searchBar.delegate = self
         
         moviesCollectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "movieCollectionViewCell")
         
@@ -34,6 +37,17 @@ class MoviesViewController: UIViewController, MoviePresenterDelegate, UIScrollVi
         presenter.setViewDelegate(delegate: self)
         presenter.getMovies(page: self.page, viewController: self)
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+        tap.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tap)
+    }
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     //MARK: - Presenter Delegate Methods
@@ -49,6 +63,8 @@ class MoviesViewController: UIViewController, MoviePresenterDelegate, UIScrollVi
             self.movies[i].poster_path = "http://image.tmdb.org/t/p/w342" + self.movies[i].poster_path
         }
         
+        self.filteredMovies = self.movies
+        
         DispatchQueue.main.async {
             self.moviesCollectionView.reloadData()
         }
@@ -57,15 +73,18 @@ class MoviesViewController: UIViewController, MoviePresenterDelegate, UIScrollVi
     //MARK: - ScrollView Handler for Pagination
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-       if(self.moviesCollectionView.contentOffset.y >= (self.moviesCollectionView.contentSize.height - self.moviesCollectionView.bounds.size.height)) {
-           if !isPageRefreshing {
-               isPageRefreshing = true
-               page = page + 1
-               presenter.getMovies(page: page, viewController: self)
-           }
         
-        isPageRefreshing = false
-       }
+        if searchBar.showsCancelButton == false || searchBar.isSearchResultsButtonSelected == false {
+            if(self.moviesCollectionView.contentOffset.y >= (self.moviesCollectionView.contentSize.height - self.moviesCollectionView.bounds.size.height)) {
+                if !isPageRefreshing {
+                    isPageRefreshing = true
+                    page = page + 1
+                    presenter.getMovies(page: page, viewController: self)
+                }
+             
+             isPageRefreshing = false
+            }
+        }
    }
 }
 
@@ -73,21 +92,21 @@ class MoviesViewController: UIViewController, MoviePresenterDelegate, UIScrollVi
 
 extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
+        return filteredMovies?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCollectionViewCell", for: indexPath as IndexPath) as! MovieCollectionViewCell
-        let movie = movies[indexPath.row]
+        let movie = filteredMovies?[indexPath.row]
         
-        cell.movieTitle.text = movie.title
+        cell.movieTitle.text = movie?.title
         let dateFormatterStringToDate = DateFormatter()
         dateFormatterStringToDate.locale = Locale(identifier: "en_US_POSIX")
         dateFormatterStringToDate.dateFormat = "yyyy-MM-dd"
-        let date = dateFormatterStringToDate.date(from:movie.release_date)!
+        let date = dateFormatterStringToDate.date(from:movie!.release_date)!
         
         // Call presenter to fetchImage URL and download the data
-        presenter.setImage(urlImage: movie.poster_path, imageView: cell.movieImage)
+        presenter.setImage(urlImage: movie!.poster_path, imageView: cell.movieImage)
         
         let dateFormatterDateToStrIng = DateFormatter()
         dateFormatterDateToStrIng.dateFormat = "MMM dd, yyyy"
@@ -104,7 +123,25 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDelega
         
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Ask presenter to handle the tap
-        presenter.didTap(movie: movies[indexPath.row], nav: self.navigationController!)
+        presenter.didTap(movie: filteredMovies[indexPath.row], nav: self.navigationController!)
     }
     
+}
+
+extension MoviesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filteredMovies = searchText.isEmpty ? movies : movies.filter { (item: Movie) -> Bool in
+            // If dataItem matches the searchText, return true to include it
+            return item.title.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
+        
+        DispatchQueue.main.async {
+            self.moviesCollectionView.reloadData()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        dismissKeyboard()
+    }
 }
