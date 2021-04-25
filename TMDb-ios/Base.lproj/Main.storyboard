@@ -76,6 +76,7 @@
                     <navigationItem key="navigationItem" id="Qri-Q3-bNW"/>
                     <connections>
                         <outlet property="moviesCollectionView" destination="eXP-gj-1kK" id="nQL-R7-wdI"/>
+                        <outlet property="searchBar" destination="avi-jk-rsW" id="U4O-rh-sQj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
