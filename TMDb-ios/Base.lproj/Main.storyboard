@@ -80,7 +80,151 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="130.58035714285714"/>
+            <point key="canvasLocation" x="1046" y="131"/>
+        </scene>
+        <!--Movie Detail View Controller-->
+        <scene sceneID="BLg-Ic-2lE">
+            <objects>
+                <viewController storyboardIdentifier="MovieDetailViewController" id="SnD-xc-LDL" customClass="MovieDetailViewController" customModule="TMDb_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ySf-mQ-v6g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBackdropPic" translatesAutoresizingMaskIntoConstraints="NO" id="cmo-Em-dlz">
+                                <rect key="frame" x="0.0" y="44" width="414" height="234"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="234" id="vnN-ZT-fZ5"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Spu-35-lNj">
+                                <rect key="frame" x="20" y="293" width="374" height="300.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mortal Kombat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vro-rL-pYW">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
+                                        <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="34"/>
+                                        <color key="textColor" name="LightBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0W-DB-Awt">
+                                        <rect key="frame" x="0.0" y="53" width="374" height="18.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03/31/2021" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAU-Qc-cnU">
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="18.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="85" id="tzY-rc-jBS"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/ Action / Science Fiction" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZo-I6-cln">
+                                                <rect key="frame" x="85" y="0.0" width="289" height="18.5"/>
+                                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pV-Pz-0bN">
+                                        <rect key="frame" x="0.0" y="83.5" width="119.5" height="33.5"/>
+                                        <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="28"/>
+                                        <color key="textColor" name="LightBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vq-sF-lbm">
+                                        <rect key="frame" x="0.0" y="129" width="374" height="109.5"/>
+                                        <string key="text">Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe.</string>
+                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="GFK-HF-yCE">
+                                        <rect key="frame" x="0.0" y="250.5" width="374" height="50"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAM-GL-Y2E">
+                                                <rect key="frame" x="0.0" y="0.0" width="179.5" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4500 total votes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvi-Wh-pn5">
+                                                        <rect key="frame" x="4" y="4" width="171.5" height="42"/>
+                                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" name="Green"/>
+                                                <constraints>
+                                                    <constraint firstItem="xvi-Wh-pn5" firstAttribute="top" secondItem="tAM-GL-Y2E" secondAttribute="top" constant="4" id="1zm-Jz-kri"/>
+                                                    <constraint firstAttribute="bottom" secondItem="xvi-Wh-pn5" secondAttribute="bottom" constant="4" id="i4c-t4-AKG"/>
+                                                    <constraint firstAttribute="trailing" secondItem="xvi-Wh-pn5" secondAttribute="trailing" constant="4" id="jbj-pM-VNR"/>
+                                                    <constraint firstItem="xvi-Wh-pn5" firstAttribute="leading" secondItem="tAM-GL-Y2E" secondAttribute="leading" constant="4" id="zTH-n0-TSd"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSR-bW-rXm">
+                                                <rect key="frame" x="194.5" y="0.0" width="179.5" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.3 average votes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twb-IY-YiK">
+                                                        <rect key="frame" x="4" y="4" width="171.5" height="42"/>
+                                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" name="LightBlue"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="twb-IY-YiK" secondAttribute="trailing" constant="4" id="1Yq-Fp-bdd"/>
+                                                    <constraint firstAttribute="bottom" secondItem="twb-IY-YiK" secondAttribute="bottom" constant="4" id="a6C-zs-KJr"/>
+                                                    <constraint firstItem="twb-IY-YiK" firstAttribute="leading" secondItem="VSR-bW-rXm" secondAttribute="leading" constant="4" id="hhl-EY-Hf0"/>
+                                                    <constraint firstItem="twb-IY-YiK" firstAttribute="top" secondItem="VSR-bW-rXm" secondAttribute="top" constant="4" id="k65-tZ-pyn"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Vro-rL-pYW" secondAttribute="trailing" id="GYV-es-Kg9"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Vq-sF-lbm" secondAttribute="trailing" id="ID3-83-Y66"/>
+                                    <constraint firstItem="D0W-DB-Awt" firstAttribute="leading" secondItem="Spu-35-lNj" secondAttribute="leading" id="SMp-gz-YVp"/>
+                                    <constraint firstItem="2Vq-sF-lbm" firstAttribute="leading" secondItem="Spu-35-lNj" secondAttribute="leading" id="mYs-V0-Mq4"/>
+                                    <constraint firstAttribute="trailing" secondItem="D0W-DB-Awt" secondAttribute="trailing" id="pCE-nX-7Co"/>
+                                    <constraint firstItem="Vro-rL-pYW" firstAttribute="leading" secondItem="Spu-35-lNj" secondAttribute="leading" id="yKM-th-5gD"/>
+                                </constraints>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="cVy-ms-Fx0">
+                                <rect key="frame" x="129.5" y="794" width="155" height="82"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="155" id="0sk-qU-S8D"/>
+                                    <constraint firstAttribute="height" constant="82" id="AYn-bY-GvL"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9MT-eS-WHi"/>
+                        <color key="backgroundColor" name="Blue"/>
+                        <constraints>
+                            <constraint firstItem="Spu-35-lNj" firstAttribute="top" secondItem="cmo-Em-dlz" secondAttribute="bottom" constant="15" id="9tz-lw-t5k"/>
+                            <constraint firstItem="cVy-ms-Fx0" firstAttribute="centerX" secondItem="ySf-mQ-v6g" secondAttribute="centerX" id="HJC-0v-Xaf"/>
+                            <constraint firstAttribute="trailing" secondItem="Spu-35-lNj" secondAttribute="trailing" constant="20" id="NL6-fw-x0s"/>
+                            <constraint firstItem="Spu-35-lNj" firstAttribute="leading" secondItem="9MT-eS-WHi" secondAttribute="leading" constant="20" id="XS8-Ua-qZf"/>
+                            <constraint firstItem="cmo-Em-dlz" firstAttribute="trailing" secondItem="9MT-eS-WHi" secondAttribute="trailing" id="dhs-as-PeP"/>
+                            <constraint firstAttribute="bottom" secondItem="cVy-ms-Fx0" secondAttribute="bottom" constant="20" id="hhL-G5-JiC"/>
+                            <constraint firstItem="cmo-Em-dlz" firstAttribute="top" secondItem="9MT-eS-WHi" secondAttribute="top" id="ndR-s5-PsF"/>
+                            <constraint firstItem="cmo-Em-dlz" firstAttribute="leading" secondItem="9MT-eS-WHi" secondAttribute="leading" id="xfT-JL-Q6G"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="averageVotesView" destination="VSR-bW-rXm" id="wGr-aB-bJC"/>
+                        <outlet property="movieAverageVotes" destination="twb-IY-YiK" id="zbG-fh-4pT"/>
+                        <outlet property="movieBackdropImage" destination="cmo-Em-dlz" id="Rem-bh-xxk"/>
+                        <outlet property="movieGenres" destination="CZo-I6-cln" id="fsc-Fg-AQg"/>
+                        <outlet property="movieOverview" destination="2Vq-sF-lbm" id="KYD-rG-WeJ"/>
+                        <outlet property="movieReleaseDate" destination="mAU-Qc-cnU" id="abb-2U-bmi"/>
+                        <outlet property="movieTitle" destination="Vro-rL-pYW" id="PJZ-rX-deF"/>
+                        <outlet property="movieTotalVotes" destination="xvi-Wh-pn5" id="noL-6C-Cqt"/>
+                        <outlet property="totalVotesView" destination="tAM-GL-Y2E" id="yzt-Jl-AIo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QKS-iY-n4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1850.7246376811595" y="120.53571428571428"/>
         </scene>
         <!--Movie-->
         <scene sceneID="HHn-Vu-NAd">
@@ -106,11 +250,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="defaultBackdropPic" width="500" height="281"/>
+        <image name="logo" width="400" height="400"/>
         <namedColor name="Blue">
             <color red="0.050999999046325684" green="0.14499999582767487" blue="0.24699999392032623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Green">
             <color red="0.56499999761581421" green="0.80800002813339233" blue="0.63099998235702515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LightBlue">
+            <color red="0.0040000001899898052" green="0.70599997043609619" blue="0.89399999380111694" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

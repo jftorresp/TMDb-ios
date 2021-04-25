@@ -11,7 +11,6 @@ import Kingfisher
 
 protocol MoviePresenterDelegate: AnyObject {
     func presentMovies(movies: [Movie])
-    func presentAlert(title: String, message: String)
 }
 
 typealias PresenterDelegate = MoviePresenterDelegate & UIViewController
@@ -48,18 +47,14 @@ class MoviePresenter {
     public func setImage(urlImage: String, imageView: UIImageView) {        
         let url = URL(string: urlImage)!
         imageView.kf.indicatorType = .activity
-        imageView.kf.setImage(with: url) { result in
-            switch result {
-            case .success(let value):
-                print(value.image)
-
-                print(value.cacheType)
-
-                print(value.source)
-
-            case .failure(let error):
-                print(error)
-            }
-        }
+        imageView.kf.setImage(with: url)
+    }
+    
+    public func didTap(movie: Movie, nav: UINavigationController) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let movieDetailVC = (storyboard.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController)!
+        movieDetailVC.movie = movie
+        nav.pushViewController(movieDetailVC, animated: true)
     }
 }

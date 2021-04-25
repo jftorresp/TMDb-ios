@@ -38,16 +38,12 @@ class MoviesViewController: UIViewController, MoviePresenterDelegate {
         self.movies = movies
                 
         for i in 0..<self.movies.count{
-            self.movies[i].poster_path = "http://image.tmdb.org/t/p/w185" + self.movies[i].poster_path
+            self.movies[i].poster_path = "http://image.tmdb.org/t/p/w342" + self.movies[i].poster_path
         }
         
         DispatchQueue.main.async {
             self.moviesCollectionView.reloadData()
         }
-    }
-        
-    func presentAlert(title: String, message: String) {
-        
     }
 }
 
@@ -83,6 +79,11 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         return CGSize(width: (view.frame.width / 2) - 5, height: 292)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Ask presenter to handle the tap
+        presenter.didTap(movie: movies[indexPath.row], nav: self.navigationController!)
     }
 
 }
