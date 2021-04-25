@@ -33,6 +33,7 @@ class MoviesViewController: UIViewController, MoviePresenterDelegate, UIScrollVi
         
         // The spinner will show if the data hasn't been fetched yet
         showSpinner(onView: self.view)
+        
         // Presenter
         presenter.setViewDelegate(delegate: self)
         presenter.getMovies(page: self.page, viewController: self)
@@ -127,6 +128,8 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDelega
     }
     
 }
+
+//MARK: - UISearchBarDelegate Methods
 
 extension MoviesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
