@@ -24,7 +24,4 @@ class MovieCollectionViewCell: UICollectionViewCell {
         movieImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
 
-    @IBAction func movieDetailPressed(_ sender: Any) {
-        
-    }
 }
