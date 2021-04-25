@@ -69,6 +69,7 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDelega
         dateFormatterStringToDate.dateFormat = "yyyy-MM-dd"
         let date = dateFormatterStringToDate.date(from:movie.release_date)!
         
+        // Call presenter to fetchImage URL and download the data
         presenter.setImage(urlImage: movie.poster_path, imageView: cell.movieImage)
         
         let dateFormatterDateToStrIng = DateFormatter()
