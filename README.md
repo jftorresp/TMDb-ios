@@ -20,7 +20,6 @@
 <img src= "https://i.imgur.com/MzpEOsS.png" width="245" >
 <img src= "https://i.imgur.com/qKVUJwM.png" width="245" >
 <img src= "https://i.imgur.com/ZXihMWK.png" width="245" >
-<img src= "https://media.giphy.com/media/3iRU37tDwaVB0OkxOp/giphy.gif" width="245" >
 </p>
 
 ## Features
